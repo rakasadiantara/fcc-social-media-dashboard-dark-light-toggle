@@ -12,12 +12,20 @@ const browsersync = require('browser-sync').create();
 //sass.compiler = require('dart-sass');
 
 // Sass Task
+// function scssTask() {
+//   return src('app/scss/style.scss', { sourcemaps: true })
+//     .pipe(sass())
+//     .pipe(postcss([autoprefixer(), cssnano()]))
+//     .pipe(dest('dist', { sourcemaps: '.' }));
+// }
+
 function scssTask() {
   return src('app/scss/style.scss', { sourcemaps: true })
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError)) // Log errors properly
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(dest('dist', { sourcemaps: '.' }));
 }
+
 
 // JavaScript Task
 function jsTask() {
