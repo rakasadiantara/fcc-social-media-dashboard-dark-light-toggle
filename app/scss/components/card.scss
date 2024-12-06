@@ -23,6 +23,7 @@
     border-radius: rem(5);
     padding: rem(25);
     transition: background 150ms ease-in-out;
+    cursor: pointer;
 
     &:hover {
         background: var(--dark-card-hover);
